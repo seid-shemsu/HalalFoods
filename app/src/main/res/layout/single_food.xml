@@ -24,48 +24,51 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp" />
         </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginVertical="5dp"
-            android:gravity="center"
-            android:text="food name"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="horizontal">
-
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="food name"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/availability"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:text="available" />
-
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="end"
-                android:text="205 ETB" />
         </LinearLayout>
-        <Button
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:layout_gravity="bottom"
-            android:text="order"
-            android:id="@+id/order"/>
+            android:layout_margin="5dp">
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/red"
+                android:layout_centerVertical="true"
+                android:text="205 Birr" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                app:backgroundTint="@color/red"
+                app:tint="@color/white"
+                android:src="@drawable/add"
+                android:id="@+id/fab"
+                android:contentDescription="add to cart" />
+        </RelativeLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

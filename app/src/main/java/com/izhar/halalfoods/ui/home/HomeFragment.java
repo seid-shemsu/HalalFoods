@@ -31,23 +31,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
-    /*RecyclerView recyclerView;
+    RecyclerView recyclerView;
     FoodListAdapter fla;
     List<Food> food_list;
     DatabaseReference foods;
     TextView empty;
     ProgressBar progressBar;
     FloatingActionButton fab;
-    TextView fab_number;*/
-    RecyclerView trending, category;
+    TextView fab_number;
+    /*RecyclerView trending, category;
     CategoriesAdapter cat_adapter;
     TrendingAdapter trend_adapter;
     List<String> cat_images, descs, trend_images, cats;
     TextView trend_empty, cat_empty;
-    ProgressBar trend_progress, cat_progress;
+    ProgressBar trend_progress, cat_progress;*/
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        trend_empty = root.findViewById(R.id.trend_empty);
+        /*trend_empty = root.findViewById(R.id.trend_empty);
         cat_empty = root.findViewById(R.id.cat_empty);
         trend_progress = root.findViewById(R.id.trend_progress);
         cat_progress = root.findViewById(R.id.cat_progress);
@@ -65,7 +65,7 @@ public class HomeFragment extends Fragment {
         trend_images = new ArrayList<>();
         cats = new ArrayList<>();
         //trending population
-        DatabaseReference t = FirebaseDatabase.getInstance().getReference("trending");
+        DatabaseReference t = FirebaseDatabase.getInstance().getReference("trends");
         t.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -73,8 +73,8 @@ public class HomeFragment extends Fragment {
                 descs.clear();
                 if (snapshot.hasChildren()){
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        trend_images.add(dataSnapshot.child("image").toString());
-                        descs.add(dataSnapshot.child("desc").toString());
+                        trend_images.add(dataSnapshot.child("image").getValue().toString());
+                        descs.add(dataSnapshot.child("desc").getValue().toString());
                     }
                     trend_adapter = new TrendingAdapter(getContext(), trend_images, descs);
                     trending.setAdapter(trend_adapter);
@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment {
         });
         //category population
 
-        DatabaseReference c = FirebaseDatabase.getInstance().getReference("category");
+        DatabaseReference c = FirebaseDatabase.getInstance().getReference("categories");
         c.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,8 +99,8 @@ public class HomeFragment extends Fragment {
                 cats.clear();
                 if (snapshot.hasChildren()){
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                        cat_images.add(dataSnapshot.child("image").toString());
-                        cats.add(dataSnapshot.child("category").toString());
+                        cat_images.add(dataSnapshot.child("image").getValue().toString());
+                        cats.add(dataSnapshot.child("category").getValue().toString());
                     }
                     cat_adapter = new CategoriesAdapter(getContext(), cat_images, cats);
                     category.setAdapter(cat_adapter);
@@ -114,8 +114,8 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
-        /*fab = root.findViewById(R.id.fab);
+        });*/
+        fab = root.findViewById(R.id.fab);
         recyclerView = root.findViewById(R.id.recycler);
         progressBar = root.findViewById(R.id.progress);
         empty = root.findViewById(R.id.empty);
@@ -150,7 +150,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
 
             }
-        });*/
+        });
         return root;
     }
 }

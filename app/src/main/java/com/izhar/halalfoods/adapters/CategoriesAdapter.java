@@ -35,7 +35,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ho
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holder.cat.setText(categories.get(position));
-        Picasso.with(context).load(images.get(position));
+        Picasso.with(context).load(images.get(position)).placeholder(R.drawable.food).into(holder.image);
     }
 
     @Override

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <!--<androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,121 +43,126 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="15dp"
-        android:backgroundTint="@color/purple_700"
-        android:src="@drawable/cart" />
--->
+        android:src="@drawable/cart"
+        app:backgroundTint="@color/red"
+        app:tint="@color/white"/>
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:queryHint="Find dish"
-        android:elevation="5dp"
-        android:focusedByDefault="true"
-        android:layout_margin="10dp"
-        android:id="@+id/search"/>
-    <LinearLayout
-        android:id="@+id/l1"
-        android:layout_below="@id/search"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/l1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/black"
             android:layout_margin="5dp"
-            android:text="Trending Dishes"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end|center_vertical"
-            android:text="see all(10)"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="25dp"/>
-    </LinearLayout>
-    <RelativeLayout
-        android:id="@+id/r1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/l1">
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/trend_recycler"
-            android:layout_margin="5dp"/>
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/trend_progress"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="trending dishes not found"
-            android:layout_centerInParent="true"
-            android:textStyle="bold"
-            android:visibility="gone"
-            android:textColor="@color/black"
-            android:id="@+id/trend_empty"/>
-    </RelativeLayout>
+            android:orientation="horizontal">
 
-    <LinearLayout
-        android:id="@+id/l2"
-        android:layout_below="@id/r1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginHorizontal="5dp"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:textColor="@color/black"
-            android:layout_margin="5dp"
-            android:text="Categories"/>
-        <TextView
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Trending Dishes"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="25dp"
+                android:gravity="end|center_vertical"
+                android:text="see all(10)" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/r1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end|center_vertical"
-            android:text="see all(10)"
-            android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="25dp"/>
-    </LinearLayout>
+            android:layout_below="@id/l1">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/l2"
-        android:id="@+id/r2">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/trend_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
+            <ProgressBar
+                android:id="@+id/trend_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/trend_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="trending dishes not found"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/l2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/cat_recycler"
+            android:layout_below="@id/r1"
             android:layout_marginHorizontal="5dp"
-            android:layout_marginVertical="15dp"/>
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
 
-        <ProgressBar
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Categories"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="25dp"
+                android:gravity="end|center_vertical"
+                android:text="see all(10)" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/r2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:id="@+id/cat_progress"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="trending dishes not found"
-            android:layout_centerInParent="true"
-            android:textStyle="bold"
-            android:visibility="gone"
-            android:textColor="@color/black"
-            android:id="@+id/cat_empty"/>
-    </RelativeLayout>
+            android:layout_below="@id/l2">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cat_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="15dp" />
+
+            <ProgressBar
+                android:id="@+id/cat_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/cat_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="trending dishes not found"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>-->
 </RelativeLayout>
